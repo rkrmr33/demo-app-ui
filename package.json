@@ -1,0 +1,20 @@
+{
+  "name": "demo-app-ui",
+  "version": "1.0.0",
+  "main": "server/index.js",
+  "repository": "https://github.com/rkrmr33/rkrmr33-demo-app-ui.git",
+  "author": "rkrmr33 <roikramer120@gmail.com>",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-winston": "^4.2.0",
+    "winston": "^3.3.3"
+  },
+  "scripts": {
+    "start": "node server",
+    "start:dev": "nodemon server"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
