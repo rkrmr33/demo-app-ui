@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: demo-app-api-server
+  name: demo-app-ui
 spec:
   selector:
-    app: demo-app-api-server
+    app: demo-app-ui
   ports:
     - name: http
       port: 80

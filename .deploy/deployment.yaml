@@ -1,15 +1,15 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: demo-app-api-server
+  name: demo-app-ui
 spec:
   selector:
     matchLabels:
-      app: demo-app-api-server
+      app: demo-app-ui
   template:
     metadata:
       labels:
-        app: demo-app-api-server
+        app: demo-app-ui
     spec:
       securityContext:
         runAsNonRoot: true
@@ -17,25 +17,25 @@ spec:
         runAsGroup: 10001
         fsGroup: 10001
       containers:
-        - name: demo-app-api-server
-          image: quay.io/roikramer120/demo-app-api-server
+        - name: demo-app-ui
+          image: quay.io/roikramer120/demo-app-ui
           args: 
           - --insecure
           securityContext:
             allowPrivilegeEscalation: false
           ports:
             - name: http
-              containerPort: 8080
+              containerPort: 3000
           livenessProbe:
             httpGet:
               path: /healthz
-              port: 8080
+              port: 3000
             initialDelaySeconds: 15
             periodSeconds: 20
           readinessProbe:
             httpGet:
               path: /readyz
-              port: 8080
+              port: 3000
             initialDelaySeconds: 5
             periodSeconds: 10
           resources:

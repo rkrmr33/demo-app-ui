@@ -1,8 +1,10 @@
-FROM golang:1.16.3-alpine3.13 as builder
+FROM node:16-alpine3.13
 
-WORKDIR /go/src/github.com/rkrmr33/demo-app-api-server
+WORKDIR /app
 
-RUN apk -U add --no-cache git make curl ca-certificates openssl && update-ca-certificates
+COPY . .
+
+RUN apk -U add --no-cache yarn curl ca-certificates openssl && update-ca-certificates
 
 # See https://stackoverflow.com/a/55757473/12429735RUN 
 RUN adduser \
@@ -14,28 +16,11 @@ RUN adduser \
     --uid "10001" \
     "api-server"
 
-# Copy the Go Modules manifests
-COPY go.mod go.mod
-COPY go.sum go.sum
+RUN yarn
 
-# Cache deps before building and copying source so that we don't need to re-download as much
-# and so that source changes don't invalidate our downloaded layer
-RUN go mod download -x
+RUN yarn build
 
-# Copy and build binary
-COPY . .
+RUN yarn install --production
 
-RUN make
-
-FROM gcr.io/distroless/base AS demo-app-api-server
-
-WORKDIR /api-server
-
-COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
-COPY --from=builder /etc/passwd /etc/passwd
-COPY --from=builder /etc/group /etc/group
-COPY --from=builder /go/src/github.com/rkrmr33/demo-app-api-server/dist/demo-app-api-server-* api-server
-
-USER api-server:api-server
-
-ENTRYPOINT ["/app/api-server"]
+ENTRYPOINT ["yarn"]
+CMD [ "start" ]

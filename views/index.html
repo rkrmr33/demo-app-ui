@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>demo-app</title>
+    <link rel="stylesheet" href="./static/style.css">
+</head>
+<body>
+    <h3>ui: v{{ version }}</h3>
+    <table>
+        <tr>
+            <ti>
+                <button id="apiserver">apiserver</button>
+                <div id="apiserver-data"></div>
+            </ti>
+        </tr>
+        <tr>
+            <ti>
+                <button id="svc1">svc1</button>
+                <div id="svc1-data"></div>
+            </ti>
+        </tr>
+        <tr>
+            <ti>
+                <button id="svc2">svc2</button>
+                <div id="svc2-data"></div>
+            </ti>
+        </tr>
+        <tr>
+            <ti>
+                <button id="svc3">svc3</button>
+                <div id="svc3-data"></div>
+            </ti>
+        </tr>
+    </table>
+    <div id="host" style="display:none">{{host}}</div>
+    <script src="./static/bundle.js"></script>
+</body>
+</html>

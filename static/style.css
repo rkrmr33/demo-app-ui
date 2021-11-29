@@ -1,0 +1,11 @@
+div {
+    border: grey solid 1px;
+    width: 500px;
+    height: fit-content;
+    min-height: 30px;
+    margin: 0px 0 10px 0;
+}
+
+body {
+    padding: 10px;
+}
