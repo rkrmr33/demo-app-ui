@@ -1,6 +1,6 @@
 {
   "name": "demo-app-ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "server/index.js",
   "repository": "https://github.com/rkrmr33/demo-app-ui.git",
   "author": "rkrmr33 <roikramer120@gmail.com>",
