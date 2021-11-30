@@ -19,8 +19,6 @@ spec:
       containers:
         - name: demo-app-ui
           image: quay.io/roikramer120/demo-app-ui
-          args: 
-          - --insecure
           securityContext:
             allowPrivilegeEscalation: false
           ports:
