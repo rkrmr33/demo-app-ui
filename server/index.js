@@ -39,7 +39,7 @@ app.get('/', async (req, res) => {
   const tpl = handlebars.compile(await fs.readFile(path.resolve(__dirname, '..', 'views', 'index.html'), { encoding: 'utf-8' }));
 
   res.status(200).send(tpl({
-    host: process.env.HOST || 'localhost:8080',
+    host: process.env.ENV === 'production' ? '' : 'localhost:8080',
     version: packagejson.version,
   }));
 });
