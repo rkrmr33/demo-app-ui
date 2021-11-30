@@ -50,7 +50,7 @@ async function svc3Click() {
 
 async function init() {
   const host = document.getElementById('host').textContent;
-  platformUrl = `${window.location.protocol}//${host}/api`;
+  platformUrl = `${window.location.protocol}//${host || window.location.host}/api`;
 
   document.getElementById('apiserver').addEventListener('click', apiserverClick);
   document.getElementById('svc1').addEventListener('click', svc1Click);
