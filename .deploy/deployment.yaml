@@ -18,7 +18,7 @@ spec:
         fsGroup: 10001
       containers:
         - name: demo-app-ui
-          image: quay.io/roikramer120/demo-app-ui:1.0.2
+          image: quay.io/roikramer120/demo-app-ui:feat-2
           env:
             - name: ENV
               value: production
