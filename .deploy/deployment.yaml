@@ -13,6 +13,11 @@ spec:
       app: demo-app-ui
   template:
     metadata:
+      annotations:
+        vc.isolight.io/git-commit-sha: e8f00b69a6344cc3f4ce14a2f7381b6aec2834b5
+        vc.isolight.io/git-pr: https://github.com/rkrmr33/demo-app-ui/pull/2
+        vc.isolight.io/git-branch: feat-2
+        vc.isolight.io/git-repo: https://github.com/rkrmr33/demo-app-ui
       labels:
         app: demo-app-ui
     spec:
